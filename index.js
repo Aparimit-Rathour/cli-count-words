@@ -1,4 +1,13 @@
-const { program } = require("commander");
+const { Command } = require('commander');
+const program = new Command();
+const path = require("path")
+const fs = require("fs")
+
+function donereading(err,data){
+	const words = data.split(" ")
+	console.log(words.length)
+
+}
 
 program
 	.name("count-words")
@@ -8,14 +17,9 @@ program
 program
 	.command("count")
 	.description("Counts the number of words in a file")
-
-program
-	.argument("<string>", "string to split")
-	.option("--first", "display just the first substring")
-	.option("-s, --separator <char>", "separator character", ",")
+	.argument("<string>","Path to the file")
 	.action((str, options) => {
-		const limit = options.first ? 1 : undefined;
-		console.log(str.split(options.separator, limit));
+		fs.readFile(str,"utf-8",donereading)
 	});
 
 program.parse();

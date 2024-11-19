@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "cli":"node index.js count '/Users/aparimit/Developer/Cohort-3.0/Week 4/cli-assignment/hi.txt'"
   },
   "author": "",
   "license": "ISC",
